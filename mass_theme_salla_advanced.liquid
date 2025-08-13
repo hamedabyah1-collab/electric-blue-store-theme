@@ -1,0 +1,132 @@
+{% layout none %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ shop.name }}</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: #0d0d0d;
+      color: #00aaff;
+      direction: rtl;
+    }
+    header, footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #111;
+    }
+    header h1 {
+      font-size: 2rem;
+    }
+    header p {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+    .hero {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .btn-main {
+      background-color: #00aaff;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .btn-main:hover {
+      background-color: #0088cc;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .product-card {
+      background-color: #111;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      max-width: 100%;
+      display: block;
+    }
+    .product-info {
+      padding: 1rem;
+    }
+    .product-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #00aaff;
+    }
+    .product-info p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    footer p {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{ shop.name }}</h1>
+    <p>ثيم أسود مطفي × أزرق كهربائي</p>
+  </header>
+
+  <section class="hero">
+    <h2>منتجات مبتكرة وجريئة</h2>
+    <a href="/products"><button class="btn-main">استعرض الآن</button></a>
+  </section>
+
+  <section class="products-grid">
+    {% for product in collections.all.products %}
+      <div class="product-card">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: 'large' }}" alt="{{ product.title }}">
+        </a>
+        <div class="product-info">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+          <a href="{{ product.url }}"><button class="btn-main">عرض المنتج</button></a>
+        </div>
+      </div>
+    {% else %}
+      <p style="grid-column: 1 / -1; text-align: center; color: #fff;">لا توجد منتجات حالياً.</p>
+    {% endfor %}
+  </section>
+
+  <footer>
+    <p>© {{ 'now' | date: "%Y" }} {{ shop.name }}</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("MASS Theme loaded for {{ shop.name }}");
+    });
+  </script>
+</body>
+</html>
