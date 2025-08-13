@@ -1,21 +1,16 @@
-# Mass Theme
+# MASS Theme
 
-This is the official theme for the **Mass** online store.
+⚡ تصميم واجهة متجر إلكتروني عصري بـ أسلوب مظلم أنيق وألوان (أسود مطفي + أزرق كهربائي).
 
-## 💡 Features
-- Sleek modern design with a black & electric blue palette
-- Fully responsive layout
-- Optimized for performance and e-commerce
+## المميزات:
+- تصميم سريع الاستجابة.
+- متوافق مع الهواتف.
+- مظهر جريء وغامض.
+- مثالي لمنتجات مثل: إلكترونيات، ألعاب، قهوة، أدوات.
 
-## 🚀 Usage
-To use this theme, upload the files to your preferred store builder (e.g., Salla, Shopify, etc.) and customize as needed.
-
-## 📁 Structure
-- `index.html` – main landing page
-- `style.css` – core styles
-- `assets/` – images and media
-- `scripts.js` – optional JS for interactions
+## التنصيب:
+ارفع الملفات لمتجرك أو منصة سلة، وخصصها حسب رغبتك.
 
 ---
 
-> Designed with precision and bold elegance.
+🧠 صمم بواسطة: [عِبْيٓه]
